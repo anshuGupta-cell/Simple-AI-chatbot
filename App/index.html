@@ -76,28 +76,7 @@
       scrollToBottom();
     }
 
-    chatForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const text = userInput.value.trim();
-
-      if (text) {
-        addMessage(text, 'sent');
-        userInput.value = '';
-
-        // 1. Create and show the loading indicator
-        const loadingId = 'loading-' + Date.now();
-        showLoading(loadingId);
-
-        // 2. Mock AI Response Delay
-        setTimeout(() => {
-          // Remove loading indicator
-          document.getElementById(loadingId).remove();
-
-          // Add actual message
-          addMessage("This interface is designed for maximum flow. ✨", 'received');
-        }, 2000); // 2 second delay to show off the animation
-      }
-    });
+    
 
     function showLoading(id) {
       const loadingDiv = document.createElement('div');

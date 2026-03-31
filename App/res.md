@@ -1,0 +1,10 @@
+In algebra, the **degree of a polynomial** is the value of the **highest exponent** of the variable in the polynomial. Think of it as the "power" or the "strength" of the expression. It tells you how quickly the polynomial grows as the variable gets larger. Here is how you determine it:
+ --- 
+### 1. Simple polynomials (Single variable) Look at the exponents of the variable (usually $x$) and find the largest one. * **Example:** $f(x) = 4x^3 + 2x^2 + 5$ * The exponents are 3, 2, and 0 (since $5 = 5x^0$). * The highest number is **3**. * This is a **third-degree polynomial** (also called a cubic). * **Example:** $f(x) = 7x + 9$ * The exponent on $x$ is 1 (since $x = x^1$). * The degree is **1** (also called a linear polynomial). 
+--- 
+### 2. Polynomials with multiple variables If a term has more than one variable (e.g., $x^2y^3$), you **add the exponents of the variables together** to find the degree of that specific term. The degree of the polynomial is the highest sum you find. * **Example:** $3x^2y^4 + 5xy^2 - 7$ * First term ($3x^2y^4$): $2 + 4 = \mathbf{6}$ * Second term ($5xy^2$): $1 + 2 = \mathbf{3}$ * Third term ($-7$): **0** * The highest degree is **6**. 
+---
+ ### 3. Special Cases * **Constant Polynomial:** If you have just a number (like $f(x) = 8$), the degree is **0**, because $8$ is the same as $8x^0$. * **Zero Polynomial:** If the polynomial is just $f(x) = 0$, the degree is technically **undefined** (or sometimes said to be $-\infty$). 
+ ---
+  ### Why does the degree matter? The degree of a polynomial tells you two very important things about its graph: 1. **Turning points:** A polynomial of degree $n$ can have at most $n-1$ "turns" (peaks and valleys). 2. **Roots (x-intercepts):** A polynomial of degree $n$ can have at most $n$ roots (places where it crosses the x-axis). 3. **End behavior:** If the degree is even, both ends of the graph point in the same direction (both up or both down). If the degree is odd, the ends point in opposite directions.
+  

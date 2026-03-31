@@ -2,7 +2,7 @@ import express from "express"
 import cors from 'cors'
 
 import dotenv from "dotenv";
-import { chat } from "./chat.js";
+import { call, callGemini } from "./chat.js";
 
 dotenv.config();
 const app = express()
@@ -15,7 +15,8 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get("/chat", chat);
+app.get("/chat", call);
+app.post("/chat", callGemini);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
