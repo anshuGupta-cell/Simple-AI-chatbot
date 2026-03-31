@@ -23,16 +23,20 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+
+    position: fixed;
+    overscroll-behavior: none;
 }
 
 /* Container with Glassmorphism */
 .chat-container {
-    height: 90vh; 
+    /* height: 90vh;  */
     height: 90dvh; 
     width: 100%;
     max-width: 440px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     background: rgba(15, 23, 42, 0.6);
     backdrop-filter: blur(24px) saturate(180%);
     border: 1px solid var(--glass-border);
@@ -120,6 +124,7 @@ body {
 /* Chat Area Styling */
 .chat-box {
     flex: 1;
+    min-height: 1rem;
     padding: 20px;
     overflow-y: auto;
     overflow-x: hidden; /* Prevent horizontal scroll */
