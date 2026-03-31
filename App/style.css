@@ -16,7 +16,7 @@
 }
 
 body {
-    height: 100vh;
+    height: 100svh;
     background: radial-gradient(circle at top left, #1e293b, #020617);
     display: flex;
     justify-content: center;
