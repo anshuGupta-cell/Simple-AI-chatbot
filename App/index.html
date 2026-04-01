@@ -63,9 +63,9 @@
     const chatBox = document.getElementById('chatBox');
     const userInput = document.getElementById('userInput');
 
-    function scrollToBottom() {
-      chatBox.scrollTop = chatBox.scrollHeight;
-    }
+    // function scrollToBottom() {
+    //   chatBox.scrollTop = chatBox.scrollHeight;
+    // }
 
     function addMessage(text, type) {
       const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -73,7 +73,7 @@
       msgDiv.classList.add('message', type);
       msgDiv.innerHTML = `${text} <span class="time">${time}</span>`;
       chatBox.appendChild(msgDiv);
-      scrollToBottom();
+      // scrollToBottom();
     }
 
     function showLoading(id) {
@@ -86,11 +86,11 @@
         <div class="typing-dot"></div>
     `;
       chatBox.appendChild(loadingDiv);
-      scrollToBottom();
+      // scrollToBottom();
     }
 
     // Initial scroll
-    scrollToBottom();
+    // scrollToBottom();
 
     if (window.visualViewport) {
       window.visualViewport.addEventListener('resize', () => {
