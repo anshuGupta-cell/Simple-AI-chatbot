@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#020617">
   <title>Premium AI Chat UI</title>
   <link rel="stylesheet" href="style.css">
 
@@ -115,6 +116,13 @@
         chatBox.scrollTop = chatBox.scrollHeight;
       }, 300);
     });
+
+    // Prevents the whole page from dragging/bouncing on mobile
+    document.body.addEventListener('touchmove', function (e) {
+      if (e.target === document.body) {
+        e.preventDefault();
+      }
+    }, { passive: false });
   </script>
 
   <script src="main.js"></script>
