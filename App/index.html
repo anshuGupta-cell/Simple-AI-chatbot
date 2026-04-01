@@ -94,12 +94,14 @@
 
     if (window.visualViewport) {
       const container = document.querySelector('.chat-container');
+      const body = document.querySelector('body');
 
       window.visualViewport.addEventListener('resize', () => {
         const viewHeight = window.visualViewport.height;
 
         // Set the container height to exactly what's visible
         container.style.height = `${viewHeight}px`;
+        body.style.height = `${viewHeight}px`;
 
         // Smoothly scroll to the bottom so the latest message is visible
         if (chatBox.lastElementChild) {
