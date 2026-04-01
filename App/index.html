@@ -93,20 +93,26 @@
     // scrollToBottom();
 
     if (window.visualViewport) {
+      const container = document.querySelector('.chat-container');
+
       window.visualViewport.addEventListener('resize', () => {
-        // Get the actual height available to the user
-        const currentHeight = window.visualViewport.height;
+        const viewHeight = window.visualViewport.height;
 
-        // Apply this height to your main wrapper
-        document.body.style.height = `${currentHeight}px`;
+        // Set the container height to exactly what's visible
+        container.style.height = `${viewHeight}px`;
 
-        // Scroll the input into view if needed
-        if (document.activeElement.tagName === 'INPUT' ||
-          document.activeElement.tagName === 'TEXTAREA') {
-          document.activeElement.scrollIntoView({ behavior: 'smooth' });
+        // Smoothly scroll to the bottom so the latest message is visible
+        if (chatBox.lastElementChild) {
+          chatBox.lastElementChild.scrollIntoView({ behavior: 'smooth' });
         }
       });
     }
+    userInput.addEventListener('focus', () => {
+      setTimeout(() => {
+        // Force a scroll to bottom when keyboard opens
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 300);
+    });
   </script>
 
   <script src="main.js"></script>
