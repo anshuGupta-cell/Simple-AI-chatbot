@@ -23,6 +23,9 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+
+    overscroll-behavior: none;
+    /* ... rest of your body styles */
 }
 
 /* Container with Glassmorphism */
@@ -258,21 +261,24 @@ body {
 
 @media (max-width: 600px) {
     body {
-        /* Fixes the background jumping */
         position: fixed;
+        top: 0; /* Keep it locked to the top */
+        left: 0;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Change from center to flex-start */
     }
 
     .chat-container {
         width: 100%;
-        /* Use dynamic viewport height, but allow JS to override it */
-        height: 100dvh;
-        max-height: 100%;
+        height: 100dvh; /* Initial height */
         border-radius: 0;
         border: none;
+        /* Ensure it starts from the top */
+        margin: 0; 
     }
 }
-
 
 /* Loading Bubble Style */
 .typing-indicator {

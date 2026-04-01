@@ -94,19 +94,19 @@
 
     if (window.visualViewport) {
       const container = document.querySelector('.chat-container');
-      const body = document.querySelector('body');
 
       window.visualViewport.addEventListener('resize', () => {
         const viewHeight = window.visualViewport.height;
 
-        // Set the container height to exactly what's visible
+        // 1. Force the container to match the visual height
         container.style.height = `${viewHeight}px`;
-        body.style.height = `${viewHeight}px`;
 
-        // Smoothly scroll to the bottom so the latest message is visible
-        if (chatBox.lastElementChild) {
-          chatBox.lastElementChild.scrollIntoView({ behavior: 'smooth' });
-        }
+        // 2. Scroll the window to the very top to prevent the "white gap" 
+        // caused by the browser's native keyboard scrolling
+        window.scrollTo(0, 0);
+
+        // 3. Keep the chat history scrolled to the bottom
+        scrollToBottom();
       });
     }
     userInput.addEventListener('focus', () => {
