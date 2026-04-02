@@ -1,11 +1,11 @@
 import fs, { writeFile } from 'fs/promises'
 
 export const insertItem = async (text, type) => {
-
+const chatFile = process.env.CHAT_FILE
 
     try {
         // 1. Read the file
-        let rawData = await fs.readFile("chatHistory.json", "utf-8");
+        let rawData = await fs.readFile(chatFile, "utf-8");
 
         // 2. Parse the string into a JSON object
         let data = JSON.parse(rawData);
@@ -17,7 +17,7 @@ export const insertItem = async (text, type) => {
         });
 
         // 4. Save it back to the file (formatted with 2 spaces for readability)
-        await fs.writeFile("chatHistory.json", JSON.stringify(data, null, 2));
+        await fs.writeFile(chatFile, JSON.stringify(data, null, 2));
 
         console.log("Chat history updated!");
         return data

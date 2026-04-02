@@ -57,7 +57,7 @@ export const callGemini = async (req, res) => {
 		console.error("Fetch failed:", err);
 		return res.json({
 			success: false,
-			message: "Something went wrong",
+			message: "Fetch failed. Internal server error !!!",
 			error: err
 		})
 

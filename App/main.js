@@ -59,6 +59,10 @@ async function callGemini(text) {
             addMessage(data.reply, 'received');
         }
 
+        if (!data.success){
+            addMessage(data.message, 'received')
+        }
+
     } catch (error) {
         console.error("Fetch failed:", error);
 
