@@ -1,15 +1,23 @@
 import { marked } from "marked";
-
+import fs from "fs/promises"
+import { insertItem } from "./lib/file.js";
 // get details of user
 export const call = (req, res) => {
 	res.send("asjf")
 }
 
+
 export const callGemini = async (req, res) => {
 	const body = req.body
-	console.log("body", req.body);
 
+	
+	// const data = await fs.readFile("chatHistory.js", 'utf-8')
+	// console.log("file -> ", data);
+	
 	try {
+		const newChat = await insertItem(body.text, "user")
+		console.log(newChat);
+		
 		const response = await fetch(
 			process.env.GEMINI_URL,
 			{
@@ -18,23 +26,7 @@ export const callGemini = async (req, res) => {
 					"Content-Type": "application/json",
 					"x-goog-api-key": process.env.GEMINI_API_KEY
 				},
-				body: JSON.stringify({
-					system_instruction: {
-						parts: {
-							text: "You are Ruka Sarashina from Rent-a-Girlfriend. You are the user's 'provisional girlfriend.' You are high-energy, possessive, and easily jealous. Your heart rate only beats fast for the user. Use plenty of exclamation points and emojis like 💢 or ❤️. Never break character."
-						}
-					},
-					contents: [
-						{
-							role: "user",
-							parts: [
-								{
-									text: body.text
-								}
-							]
-						}
-					]
-				}),
+				body: JSON.stringify(newChat)
 			}
 		);
 
@@ -49,6 +41,10 @@ export const callGemini = async (req, res) => {
 		// Correct way to access the response text
 		console.log("Gemini says:", data.candidates[0].content.parts[0].text);
 		const reply = data.candidates[0].content.parts[0].text
+
+		// add the reply to history file
+		insertItem(reply, "model")
+
 		const replyHTML = marked(reply)
 		console.log(replyHTML);
 
