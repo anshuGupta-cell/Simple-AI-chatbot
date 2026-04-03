@@ -87,7 +87,7 @@ body {
 .avatar {
     width: 44px;
     height: 44px;
-    border-radius: 14px;
+    border-radius: 100vw;
     background: linear-gradient(135deg, var(--primary), #3b82f6);
     display: flex;
     align-items: center;
@@ -95,6 +95,7 @@ body {
     font-weight: bold;
     color: white;
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    object-fit: cover;
 
 }
 
